@@ -76,8 +76,22 @@
                             </StackPanel>
 
                         </GroupBox>
+                        <GroupBox Header="Quy tắc bố trí"
+                                  Margin="0,15,0,0">
 
-                       
+                            <StackPanel Margin="10">
+
+                                <RadioButton Content="Giằng mỗi 4m chiều cao"/>
+
+                                <RadioButton Content="Giằng đỉnh tường"/>
+
+                                <RadioButton Content="Khoảng cách tùy chỉnh"/>
+
+                            </StackPanel>
+
+                        </GroupBox>
+
+
                     </StackPanel>
 
                 </Grid>   

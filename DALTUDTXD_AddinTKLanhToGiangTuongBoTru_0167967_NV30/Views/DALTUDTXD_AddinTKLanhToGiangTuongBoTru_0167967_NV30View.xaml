@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30View" Height="700" Width="1000">
     <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -15,7 +19,7 @@
 
         <!-- Header -->
         <Border Grid.Row="0"
-            Background="#1565C0">
+            Background="#1565C0" Grid.ColumnSpan="2">
 
             <Grid Margin="20,0">
 
@@ -41,7 +45,7 @@
 
         <!-- Nội dung -->
         <TabControl Grid.Row="1"
-                Margin="15">
+                Margin="15,15,15,15" Grid.ColumnSpan="2">
             <!-- TAB GIẰNG TƯỜNG -->
             <TabItem Header="Giằng tường">
 
@@ -101,7 +105,7 @@
                             <Button Width="150"
                                     Height="40"
                                     Content="Tính toán"/>
- 
+
                         </StackPanel>
 
                         <GroupBox Header="Danh sách tường"
@@ -129,11 +133,54 @@
                             </DataGrid>
 
                         </GroupBox>
-                    
+
+                    </StackPanel>
+                    <!-- Cột phải -->
+                    <StackPanel Grid.Column="1">
+
+                        <Border Background="White"
+                                CornerRadius="8"
+                                Padding="20"
+                                Margin="10"
+                                BorderBrush="#DADADA"
+                                BorderThickness="1">
+
+                            <StackPanel>
+
+                                <TextBlock Text="TỔNG SỐ GIẰNG"
+                                           FontWeight="Bold"/>
+
+                                <TextBlock Text="{Binding TongSoGiang}"
+                                           FontSize="32"
+                                           FontWeight="Bold"
+                                           Foreground="#1565C0"/>
+
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border Background="White"
+                                CornerRadius="8"
+                                Padding="20"
+                                Margin="10"
+                                BorderBrush="#DADADA"
+                                BorderThickness="1">
+
+                            <StackPanel>
+
+                                <TextBlock Text="TỔNG CHIỀU DÀI"
+                                           FontWeight="Bold"/>
+
+                                <TextBlock Text="{Binding TongChieuDaiGiang}"/>
+
+                            </StackPanel>
+
+                        </Border>
+
                     </StackPanel>
 
-                </Grid>   
-            
+                </Grid>
+
             </TabItem>
         </TabControl>
     </Grid>

@@ -90,8 +90,46 @@
                             </StackPanel>
 
                         </GroupBox>
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0,15,0,0">
 
+                            <Button Width="150"
+                                    Height="40"
+                                    Margin="0,0,10,0"
+                                    Content="Lấy dữ liệu Revit"/>
 
+                            <Button Width="150"
+                                    Height="40"
+                                    Content="Tính toán"/>
+ 
+                        </StackPanel>
+
+                        <GroupBox Header="Danh sách tường"
+                                  Margin="0,20,0,0">
+
+                            <DataGrid Height="250"
+                                      AutoGenerateColumns="False">
+
+                                <DataGrid.Columns>
+
+                                    <DataGridTextColumn Header="Tên tường"
+                                                         Width="*"/>
+
+                                    <DataGridTextColumn Header="Dài (m)"
+                                                        Width="100"/>
+
+                                    <DataGridTextColumn Header="Cao (m)"
+                                                        Width="100"/>
+
+                                    <DataGridTextColumn Header="Số giằng"
+                                                        Width="100"/>
+
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+
+                        </GroupBox>
+                    
                     </StackPanel>
 
                 </Grid>   

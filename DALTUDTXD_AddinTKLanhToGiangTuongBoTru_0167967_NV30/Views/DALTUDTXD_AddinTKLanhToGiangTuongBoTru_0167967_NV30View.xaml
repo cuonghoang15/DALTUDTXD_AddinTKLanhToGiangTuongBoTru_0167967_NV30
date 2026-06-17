@@ -82,14 +82,84 @@
 
                         </GroupBox>
 
+                        <Button Width="150"
+                    Height="40"
+                    Margin="0,15,0,0"
+                    Content="Tính toán"/>
 
+                        <GroupBox Header="Danh sách tường"
+                      Margin="0,20,0,0">
+
+                            <DataGrid Height="250"
+                          AutoGenerateColumns="False">
+
+                                <DataGrid.Columns>
+
+                                    <DataGridTextColumn Header="Tên tường"/>
+                                    <DataGridTextColumn Header="Chiều dài"/>
+                                    <DataGridTextColumn Header="Chiều cao"/>
+                                    <DataGridTextColumn Header="Số bổ trụ"/>
+
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+
+                        </GroupBox>
 
                     </StackPanel>
+
+                    <!-- Kết quả -->
+                    <StackPanel Grid.Column="1">
+
+                        <Border Background="White"
+                    BorderBrush="#DADADA"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="20"
+                    Margin="10">
+
+                            <StackPanel>
+
+                                <TextBlock Text="TỔNG SỐ BỔ TRỤ"
+                               FontWeight="Bold"/>
+
+                                <TextBlock Text=""
+                               FontSize="32"
+                               FontWeight="Bold"
+                               Foreground="#1565C0"/>
+
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border Background="White"
+                    BorderBrush="#DADADA"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="20"
+                    Margin="10">
+
+                            <StackPanel>
+
+                                <TextBlock Text="TỔNG THỂ TÍCH BT"
+                               FontWeight="Bold"/>
+
+                                <TextBlock Text=""
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Foreground="#1565C0"/>
+
+                            </StackPanel>
+
+                        </Border>
+
+                    </StackPanel>
+
                 </Grid>
+
             </TabItem>
+
         </TabControl>
-        <!-- Kết quả -->
-                   
 
     </Grid>
 </Window>

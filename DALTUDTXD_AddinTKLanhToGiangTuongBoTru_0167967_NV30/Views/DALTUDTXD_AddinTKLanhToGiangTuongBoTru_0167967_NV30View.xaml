@@ -5,8 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.Views"
         mc:Ignorable="d"
-        Title="DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30View" Height="450" Width="800">
-    <Grid>
-        
+        Title="DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30View" Height="700" Width="1000">
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0"
+            Background="#1565C0">
+
+            <Grid Margin="20,0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="🏗 THIẾT KẾ LANH TÔ &amp; GIẰNG TƯỜNG &amp; BỔ TRỤ"
+                       Foreground="White"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"/>
+
+                <Button Grid.Column="1"
+                    Width="35"
+                    Height="35"
+                    Content="✕"
+                    Click="CloseButton_Click"/>
+            </Grid>
+
+        </Border>
+
+        <!-- Nội dung -->
+        <TabControl Grid.Row="1"
+                Margin="15">
+            <!-- TAB GIẰNG TƯỜNG -->
+            <TabItem Header="Giằng tường">
+
+                <Grid Margin="10">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                 </Grid>   
+
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

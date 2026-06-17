@@ -52,8 +52,36 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                 </Grid>   
+                    <!-- Cột trái -->
+                    <StackPanel Grid.Column="0">
 
+                        <GroupBox Header="Thông số đầu vào">
+
+                            <StackPanel Margin="10">
+
+                                <TextBlock Text="Khoảng cách giằng (m)"/>
+                                <TextBox Height="30"
+                             Text="{Binding KhoangCachGiang}"/>
+
+                                <TextBlock Margin="0,10,0,0"
+                               Text="Chiều cao giằng (mm)"/>
+                                <TextBox Height="30"
+                             Text="{Binding ChieuCaoGiang}"/>
+
+                                <TextBlock Margin="0,10,0,0"
+                               Text="Chiều rộng giằng (mm)"/>
+                                <TextBox Height="30"
+                             Text="{Binding ChieuRongGiang}"/>
+
+                            </StackPanel>
+
+                        </GroupBox>
+
+                       
+                    </StackPanel>
+
+                </Grid>   
+            
             </TabItem>
         </TabControl>
     </Grid>

@@ -6,6 +6,90 @@
         xmlns:local="clr-namespace:DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.Views"
         mc:Ignorable="d"
         Title="DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30View" Height="700" Width="1000">
-    <Grid>
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0"
+            Background="#1565C0">
+
+            <Grid Margin="20,0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="🏗 THIẾT KẾ LANH TÔ &amp; GIẰNG TƯỜNG &amp; BỔ TRỤ"
+                       Foreground="White"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"/>
+
+                <Button Grid.Column="1"
+                    Width="35"
+                    Height="35"
+                    Content="✕"
+                    Click="CloseButton_Click"/>
+            </Grid>
+
+        </Border>
+
+        <!-- Nội dung -->
+        <TabControl Grid.Row="1"
+                Margin="15">
+            <TabItem Header="Bổ trụ">
+
+                <Grid Margin="10">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Nhập liệu -->
+                    <StackPanel Grid.Column="0">
+
+                        <GroupBox Header="Thông số đầu vào">
+
+                            <StackPanel Margin="10">
+
+                                <TextBlock Text="Chiều dài tường (m)"/>
+                                <TextBox Height="30"/>
+
+                                <TextBlock Margin="0,10,0,0"
+                               Text="Chiều cao tường (m)"/>
+                                <TextBox Height="30"/>
+
+                                <TextBlock Margin="0,10,0,0"
+                               Text="Khoảng cách bổ trụ tối đa (m)"/>
+                                <TextBox Height="30"
+                             Text="4"/>
+
+                                <TextBlock Margin="0,10,0,0"
+                               Text="Kích thước bổ trụ"/>
+                                <ComboBox Height="30">
+                                    <ComboBoxItem Content="220x220"/>
+                                    <ComboBoxItem Content="220x330"/>
+                                    <ComboBoxItem Content="330x330"/>
+                                </ComboBox>
+
+                            </StackPanel>
+
+                        </GroupBox>
+
+
+
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <!-- Kết quả -->
+                   
+
     </Grid>
 </Window>

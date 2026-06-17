@@ -1,12 +1,45 @@
 ﻿<Window x:Class="DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.Views.DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30View"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.Views"
-        mc:Ignorable="d"
-        Title="DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30View" Height="450" Width="800">
-    <Grid>
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:local="clr-namespace:DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.Views"
+ mc:Ignorable="d"
+ Title="DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30View" Height="700" Width="1000">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0"
+         Background="#1565C0">
+
+            <Grid Margin="20,0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="🏗 THIẾT KẾ LANH TÔ &amp; GIẰNG TƯỜNG &amp; BỔ TRỤ"
+                    Foreground="White"
+                    FontSize="22"
+                    FontWeight="Bold"
+                    VerticalAlignment="Center"/>
+
+                <Button Grid.Column="1"
+                 Width="35"
+                 Height="35"
+                 Content="✕"
+                 Click="CloseButton_Click"/>
+            </Grid>
+
+        </Border>
+
         
     </Grid>
+
+
 </Window>

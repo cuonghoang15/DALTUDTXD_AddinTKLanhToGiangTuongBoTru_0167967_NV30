@@ -127,6 +127,43 @@ namespace DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.ViewModels
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void TinhToan()
+        {
+            // Kích thước bổ trụ mm → m
+            var parts = KichThuocBoTru.Split('x');
+            double b = double.Parse(parts[0]) / 1000.0;
+            double h = double.Parse(parts[1]) / 1000.0;
+
+            // Nếu không có dữ liệu từ Revit thì tạo 1 dòng từ input nhập tay
+            if (DanhSachTuong.Count == 0)
+            {
+                DanhSachTuong.Add(new TuongBoTruItem
+                {
+                    TenTuong = "Tường nhập tay",
+                    ChieuDai = ChieuDaiTuong,
+                    ChieuCao = ChieuCaoTuong
+                });
+            }
+
+            int tongBoTru = 0;
+            double tongTheTich = 0;
+
+            foreach (var tuong in DanhSachTuong)
+            {
+                // Số bổ trụ giữa nhịp = Ceiling(L / khoảng cách) - 1
+                int so = (int)Math.Max(1, Math.Ceiling(tuong.ChieuDai / KhoangCachBoTruToiDa) - 1);
+                tuong.SoBoTru = so;
+                tongBoTru += so;
+                tongTheTich += so * b * h * tuong.ChieuCao;
+            }
+
+            TongSoBoTru = tongBoTru;
+            TongTheTichBT = $"{tongTheTich:F3} m³";
+
+            var bk = DanhSachTuong.ToList();
+            DanhSachTuong.Clear();
+            foreach (var item in bk) DanhSachTuong.Add(item);
+        }
 
     }
 }

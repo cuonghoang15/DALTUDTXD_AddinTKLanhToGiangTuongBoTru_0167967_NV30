@@ -38,7 +38,7 @@
                     Width="35"
                     Height="35"
                     Content="✕"
-                    Click="CloseButton_Click"/>
+                    />
             </Grid>
 
         </Border>

@@ -8,5 +8,6 @@ namespace DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.ViewModels
 {
     class MainViewModel
     {
+        public GiangTuongViewModel GiangTuong { get; } = new GiangTuongViewModel();
     }
 }

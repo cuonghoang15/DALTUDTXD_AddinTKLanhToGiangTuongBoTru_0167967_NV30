@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,5 +31,23 @@ namespace DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.ViewModels
             get => _khoangCachBoTruToiDa;
             set => SetField(ref _khoangCachBoTruToiDa, value);
         }
+
+        // ── Kích thước bổ trụ ────────────────────────────────────────────────
+
+        public List<string> DanhSachKichThuoc { get; } = new()
+        {
+            "220x220", "220x330", "330x330"
+        };
+
+        private string _kichThuocBoTru = "220x220";
+        public string KichThuocBoTru
+        {
+            get => _kichThuocBoTru;
+            set => SetField(ref _kichThuocBoTru, value);
+        }
+
+        // ── Danh sách tường ──────────────────────────────────────────────────
+
+        public ObservableCollection<TuongBoTruItem> DanhSachTuong { get; } = new();
     }
 }

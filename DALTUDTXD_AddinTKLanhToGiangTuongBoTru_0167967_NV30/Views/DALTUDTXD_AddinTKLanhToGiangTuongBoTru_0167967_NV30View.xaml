@@ -111,8 +111,8 @@
                         <GroupBox Header="Danh sách tường"
                                   Margin="0,20,0,0">
 
-                            <DataGrid Height="250"
-                                      AutoGenerateColumns="False">
+                            <DataGrid Height="150"
+                                      AutoGenerateColumns="False" Margin="10,0,0,0" HorizontalAlignment="Left" Width="607">
 
                                 <DataGrid.Columns>
 
@@ -136,7 +136,7 @@
 
                     </StackPanel>
                     <!-- Cột phải -->
-                    <StackPanel Grid.Column="1">
+                    <StackPanel Grid.ColumnSpan="2" Height="546" Margin="629,0,0,0" VerticalAlignment="Top">
 
                         <Border Background="White"
                                 CornerRadius="8"

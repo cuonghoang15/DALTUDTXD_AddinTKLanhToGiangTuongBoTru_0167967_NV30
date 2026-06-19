@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,5 +54,25 @@ namespace DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.ViewModels
             get => _giangTuyChinh;
             set => SetField(ref _giangTuyChinh, value);
         }
+        // ── Danh sách tường ──────────────────────────────────────────────────
+
+        public ObservableCollection<TuongGiangItem> DanhSachTuong { get; } = new();
+
+        // ── Kết quả ──────────────────────────────────────────────────────────
+
+        private int _tongSoGiang;
+        public int TongSoGiang
+        {
+            get => _tongSoGiang;
+            private set => SetField(ref _tongSoGiang, value);
+        }
+
+        private string _tongChieuDaiGiang = "0.00 m";
+        public string TongChieuDaiGiang
+        {
+            get => _tongChieuDaiGiang;
+            private set => SetField(ref _tongChieuDaiGiang, value);
+        }
+
     }
 }

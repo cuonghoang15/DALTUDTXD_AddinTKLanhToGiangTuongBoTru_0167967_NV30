@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  FILE NÀY PHẢI ĐẶT TẠI:
+    Windows: C:\ProgramData\Autodesk\Revit\Addins\2025\
+  (hoặc thư mục Addins tương ứng với phiên bản Revit của bạn)
+
+  Sau khi Build, copy file .addin này và file DLL vào thư mục trên.
+-->
+<RevitAddIns>
+
+  <!-- ① Đăng ký Application (tạo Ribbon Tab + Button) -->
+  <AddIn Type="Application">
+    <Name>DAL TK Lanh To Giang Tuong Bo Tru</Name>
+    <Assembly>DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.dll</Assembly>
+    <FullClassName>DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.App</FullClassName>
+    <!-- Tạo GUID mới bằng Visual Studio → Tools → Create GUID nếu cần -->
+    <AddInId>A1B2C3D4-E5F6-7890-ABCD-EF1234567890</AddInId>
+    <VendorId>DAL_TUXD</VendorId>
+    <VendorDescription>Đồ án lớn Thiết kế công trình xây dựng</VendorDescription>
+  </AddIn>
+
+  <!-- ② Đăng ký Command (được gọi khi click Button trên Ribbon) -->
+  <AddIn Type="Command">
+    <Name>Mo Giao Dien Lanh To Giang Bo Tru</Name>
+    <Assembly>DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.dll</Assembly>
+    <FullClassName>DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.Commands.MoGiaoDienCommand</FullClassName>
+    <AddInId>B2C3D4E5-F6A7-8901-BCDE-F12345678901</AddInId>
+    <VendorId>DALTUDTXD</VendorId>
+  </AddIn>
+
+</RevitAddIns>

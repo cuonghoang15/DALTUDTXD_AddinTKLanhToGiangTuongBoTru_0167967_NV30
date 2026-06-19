@@ -141,6 +141,31 @@ namespace DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.ViewModels
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        // ── Tính toán ────────────────────────────────────────────────────────
+
+        private void TinhToan()
+        {
+            int tongGiang = 0;
+            double tongChieuDai = 0;
+
+            foreach (var tuong in DanhSachTuong)
+            {
+                int soGiang = GiangDinhTuong
+                    ? 1
+                    : (int)Math.Ceiling(tuong.CaoTuong / KhoangCachGiang);
+
+                tuong.SoGiang = soGiang;
+                tongGiang += soGiang;
+                tongChieuDai += soGiang * tuong.DaiTuong;
+            }
+
+            TongSoGiang = tongGiang;
+            TongChieuDaiGiang = $"{tongChieuDai:F2} m";
+
+            var bk = DanhSachTuong.ToList();
+            DanhSachTuong.Clear();
+            foreach (var item in bk) DanhSachTuong.Add(item);
+        }
 
     }
 }

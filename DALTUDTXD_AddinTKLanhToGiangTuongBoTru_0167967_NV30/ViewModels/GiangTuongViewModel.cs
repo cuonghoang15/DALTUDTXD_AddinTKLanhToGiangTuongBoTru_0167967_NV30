@@ -30,5 +30,27 @@ namespace DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.ViewModels
             get => _chieuRongGiang;
             set => SetField(ref _chieuRongGiang, value);
         }
+        // ── Quy tắc bố trí ───────────────────────────────────────────────────
+
+        private bool _giangMoi4m = true;
+        public bool GiangMoi4m
+        {
+            get => _giangMoi4m;
+            set { if (SetField(ref _giangMoi4m, value) && value) KhoangCachGiang = 4.0; }
+        }
+
+        private bool _giangDinhTuong;
+        public bool GiangDinhTuong
+        {
+            get => _giangDinhTuong;
+            set => SetField(ref _giangDinhTuong, value);
+        }
+
+        private bool _giangTuyChinh;
+        public bool GiangTuyChinh
+        {
+            get => _giangTuyChinh;
+            set => SetField(ref _giangTuyChinh, value);
+        }
     }
 }

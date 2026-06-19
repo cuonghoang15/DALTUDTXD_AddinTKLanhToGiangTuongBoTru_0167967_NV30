@@ -1,11 +1,9 @@
-﻿using DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.Models;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Input;
+using Autodesk.Revit.DB;
+using DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.Commands;
+using DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.Models;
 namespace DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.ViewModels
 {
    public class GiangTuongViewModel : BaseViewModel
@@ -72,6 +70,76 @@ namespace DALTUDTXD_AddinTKLanhToGiangTuongBoTru_0167967_NV30.ViewModels
         {
             get => _tongChieuDaiGiang;
             private set => SetField(ref _tongChieuDaiGiang, value);
+        }
+        
+
+        // ── Lấy dữ liệu từ Revit API ─────────────────────────────────────────
+
+        private void LayDuLieuRevit()
+        {
+            var doc = RevitContext.Doc;
+            if (doc == null)
+            {
+                MessageBox.Show("Không tìm thấy Document Revit!", "Lỗi",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            try
+            {
+                DanhSachTuong.Clear();
+
+                // Lấy tất cả tường (Wall) trong mô hình
+                var walls = new FilteredElementCollector(doc)
+                    .OfClass(typeof(Wall))
+                    .Cast<Wall>();
+
+                const double FeetToMeter = 0.3048;
+
+                foreach (Wall wall in walls)
+                {
+                    // Chiều dài tường
+                    double daiF = wall.get_Parameter(BuiltInParameter.CURVE_ELEM_LENGTH)
+                                      ?.AsDouble() ?? 0.0;
+                    // Chiều cao tường
+                    double caoF = wall.get_Parameter(BuiltInParameter.WALL_USER_HEIGHT_PARAM)
+                                      ?.AsDouble()
+                               ?? wall.get_Parameter(BuiltInParameter.WALL_TOP_OFFSET)
+                                      ?.AsDouble()
+                               ?? 0.0;
+
+                    double daiM = Math.Round(daiF * FeetToMeter, 2);
+                    double caoM = Math.Round(caoF * FeetToMeter, 2);
+
+                    if (daiM <= 0 || caoM <= 0) continue;
+
+                    // Tên tường: Mark nếu có, không thì dùng ElementId
+                    string mark = wall.get_Parameter(BuiltInParameter.ALL_MODEL_MARK)
+                                      ?.AsString() ?? string.Empty;
+                    string ten = string.IsNullOrWhiteSpace(mark)
+                                  ? $"Tường [{wall.Id}]"
+                                  : mark;
+
+                    DanhSachTuong.Add(new TuongGiangItem
+                    {
+                        TenTuong = ten,
+                        DaiTuong = daiM,
+                        CaoTuong = caoM
+                    });
+                }
+
+                if (DanhSachTuong.Count == 0)
+                    MessageBox.Show("Không tìm thấy tường nào trong mô hình.",
+                        "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                else
+                    MessageBox.Show($"Đã lấy {DanhSachTuong.Count} tường từ Revit.",
+                        "Lấy dữ liệu Revit", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi Revit API:\n" + ex.Message, "Lỗi",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
     }

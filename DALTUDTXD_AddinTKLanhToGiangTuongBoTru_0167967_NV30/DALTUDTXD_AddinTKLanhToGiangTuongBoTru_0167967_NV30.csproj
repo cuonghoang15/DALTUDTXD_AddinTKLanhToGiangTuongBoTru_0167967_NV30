@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Family\" />
+    <Folder Include="Services\" />
     <Folder Include="Resoucers\Icons\" />
     <Folder Include="Views\Converters\" />
   </ItemGroup>
